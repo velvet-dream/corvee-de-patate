@@ -1,4 +1,3 @@
-/* Keyboard links v1.2 - Start */
 var KBIntervalID = 0;
 $(document).on(":passagerender", function (ev) {
 	clearInterval(KBIntervalID);
@@ -73,4 +72,3 @@ $(document).on("keyup", function (e) {
                 }
             }  
 });
-/* Keyboard links - End */
