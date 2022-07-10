@@ -99,21 +99,97 @@ var LZString={_keyStr:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01234
 		<div id="init-loading"><div>Loading&hellip;</div></div>
 	</div>
 	<tw-storydata name="Corvee de patates" startnode="1" creator="Twine" creator-version="2.3.15" ifid="6EE1BB98-4624-4A9D-A7BB-D3DA58957955" zoom="1" format="SugarCube" format-version="2.34.1" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">.player {
-  color: red;
+  color: #977017;
 }
 
 .pnj {
-  color: blue;
+  color: #477f54;
 }
 
 .narration {
-  color: green;
+  color: #cdc8bf;
 }
 
 .choice {
-  color: pink;
+  color: #feabf8;
   font-weight: bold;
-}</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Introduction" tags="" position="202,699" size="100,100">&lt;span class=&quot;narration&quot;&gt;Cela fait maintenant une heure que vous errez au festival technofeministe. Vous aimeriez bien engager la discussion avec quelqu’un.e et apporter votre aide aux organisataires.
+}
+
+</style><script role="script" id="twine-user-script" type="text/twine-javascript">var KBIntervalID = 0;
+$(document).on(":passagerender", function (ev) {
+	clearInterval(KBIntervalID);
+	UpdateLinks(ev.content);
+	// Search passages for links every 300ms, just in case they get updated, and marks them for key clicks
+	KBIntervalID = setInterval(UpdateLinks, 300);
+});
+// Adds key shortcut indicators to links in passage if there are less than 11 links in the passsage.
+function UpdateLinks(Container) {
+	// Enables keyboard shortcuts on passages that do not have the "DisableKeyLinks" tag
+	if (!tags().includes("DisableKeyLinks")) {
+		var Links, i;
+		if (typeof Container === "undefined") {
+			Container = document;
+			Links = $("#passages a").toArray();
+		} else {
+			Links = $(Container).find("a").toArray();
+		}
+		if (Links.length > 0) {
+			for (i = Links.length - 1; i >= 0; i--) {
+				if ($(Links[i]).data("nokeys") || $(Links[i]).parent().data("nokeys")) {
+					Links.deleteAt(i);
+				}
+			}
+		}
+		if (Links.length === 1) {
+			if (!Links[0].id.includes("Link")) {
+				Links[0].id = "NextLink";
+			}
+		} else if (Links.length >= 1 && Links.length <= 10) {
+			var n = 1;
+			for (i = 0; i < Links.length; i++) {
+				if (!Links[i].id.includes("Link")) {
+					while ($(Container).find("#Link" + n).length) {
+						++n;
+						if (n > 10) {
+							break;
+						}
+					}
+					if (n < 10) {
+						$("<sup>[" + n + "]</sup>").appendTo(Links[i]);
+						Links[i].id = "Link" + n;
+					} else if (n === 10) {
+						$("<sup>[0]</sup>").appendTo(Links[i]);
+						Links[i].id = "Link0";
+						break;
+					} else {
+						break;
+					}
+				}
+			}
+		}
+	}
+}
+$(document).on("keyup", function (e) {
+	// Enables keyboard shortcuts on passages that do not have the "DisableKeyLinks" tag
+	// Trigger random click on "." or "r" key
+            if ((e.key == "z") || (e.keyCode == 32)) {
+                e.preventDefault();
+                var Links = $("#passages a"), n, UsableLinks = [];
+                if (Links.length > 0) {
+                    for (n = 0; n < Links.length; n++) {
+                        if (!$(Links[n]).data("nokey")) {
+                            UsableLinks.push(n);
+                        }
+                    }
+                    if (UsableLinks.length > 0) {
+                        n = random(UsableLinks.length - 1);
+                        Links[UsableLinks[n]].click();
+                        return false;
+                    }
+                }
+            }  
+});
+</script><tw-passagedata pid="1" name="Introduction" tags="" position="200,700" size="100,100">&lt;span class=&quot;narration&quot;&gt;Cela fait maintenant une heure que vous errez au festival technofeministe. Vous aimeriez bien engager la discussion avec quelqu’un.e et apporter votre aide aux organisataires.
 
 Sur le planning, il reste un créneau de libre pour aider aux tâches culinaires. Il semblerait que ces créneaux ne soient jamais pris.
 
@@ -123,8 +199,8 @@ Sur le planning, il reste un créneau de libre pour aider aux tâches culinaires
 /* Variables contenant les options choisies */
 &lt;&lt;set $selected to [ [&quot;&quot;, &quot;&quot;, &quot;&quot;], [&quot;&quot;, &quot;&quot;, &quot;&quot;], [&quot;&quot;, &quot;&quot;, &quot;&quot;], [&quot;&quot;, &quot;&quot;, &quot;&quot;], [&quot;&quot;, &quot;&quot;, &quot;&quot;], [&quot;&quot;, &quot;&quot;, &quot;&quot;], [&quot;&quot;, &quot;&quot;, &quot;&quot;], [&quot;&quot;, &quot;&quot;, &quot;&quot;], [&quot;&quot;, &quot;&quot;, &quot;&quot;], [&quot;&quot;, &quot;&quot;, &quot;&quot;], [&quot;&quot;, &quot;&quot;, &quot;&quot;], [&quot;&quot;, &quot;&quot;, &quot;&quot;], [&quot;&quot;, &quot;&quot;, &quot;&quot;], [&quot;&quot;, &quot;&quot;, &quot;&quot;] ]&gt;&gt;
 
-&lt;&lt;set $timer to &quot;1s&quot;&gt;&gt;
-&lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="2" name="Rencontre" tags="" position="401,699" size="100,100">&lt;span class=&quot;narration&quot;&gt;Vous vous inscrivez au planning. Peu de temps après, vous vous rendez à la cuisine collective. Une personne se tient assise à table, en train d’éplucher des pommes de terre d’un geste déterminé et méthodique.&lt;/span&gt;
+&lt;&lt;set $timer to &quot;2s&quot;&gt;&gt;
+&lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="2" name="Rencontre" tags="" position="400,700" size="100,100">&lt;span class=&quot;narration&quot;&gt;Vous vous inscrivez au planning. Peu de temps après, vous vous rendez à la cuisine collective. Une personne se tient assise à table, en train d’éplucher des pommes de terre d’un geste déterminé et méthodique.&lt;/span&gt;
 
 &lt;&lt;timed 1s&gt;&gt; \
 	&lt;span id=&quot;firstChoice&quot;&gt;&lt;span id=&quot;first&quot; class=&quot;choice&quot;&gt;$selected[0][0]&lt;/span&gt; &lt;span id=&quot;second&quot; class=&quot;choice&quot;&gt;$selected[0][1]&lt;/span&gt; &lt;span id=&quot;third&quot; class=&quot;choice&quot;&gt;$selected[0][2]&lt;/span&gt;
@@ -162,7 +238,7 @@ Sur le planning, il reste un créneau de libre pour aider aux tâches culinaires
 &lt;&lt;/repeat&gt;&gt;
 &lt;&lt;/silently&gt;&gt;\
 
-</tw-passagedata><tw-passagedata pid="3" name="Rencontre bis" tags="" position="402,825" size="100,100">
+</tw-passagedata><tw-passagedata pid="3" name="Rencontre bis" tags="" position="400,825" size="100,100">
 &lt;span id=&quot;pnj1&quot; class=&quot;pnj&quot;&gt;&lt;/span&gt;
 
 &lt;span id=&quot;secondChoice&quot;&gt;&lt;/span&gt;\
@@ -223,7 +299,7 @@ Sur le planning, il reste un créneau de libre pour aider aux tâches culinaires
 		&lt;&lt;/if&gt;&gt;
 	&lt;&lt;/repeat&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
-&lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="4" name="Rencontre ter" tags="" position="402,952" size="100,100">
+&lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="4" name="Rencontre ter" tags="" position="400,950" size="100,100">
 &lt;span id=&quot;pnj2&quot; class=&quot;pnj&quot;&gt;&lt;/span&gt;
 
 &lt;&lt;silently&gt;&gt;
@@ -249,7 +325,7 @@ Heum. Tu… tu as le pied sur ma planche à découper.
 		&lt;&lt;include &quot;Suite&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;
 	&lt;&lt;/switch&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
-&lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="5" name="Pieds" tags="" position="550,699" size="100,100">
+&lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="5" name="Pieds" tags="" position="550,700" size="100,100">
 &lt;span id=&quot;thirdChoice&quot;&gt;&lt;/span&gt;\
 
 &lt;&lt;silently&gt;&gt;
@@ -290,7 +366,7 @@ Heum. Tu… tu as le pied sur ma planche à découper.
 		&lt;&lt;/if&gt;&gt;
 	&lt;&lt;/repeat&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
-&lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="6" name="Suite" tags="" position="701,699" size="100,100">
+&lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="6" name="Suite" tags="" position="700,700" size="100,100">
 &lt;span id=&quot;fourthChoice&quot;&gt;&lt;/span&gt;\
 
 &lt;&lt;silently&gt;&gt;
@@ -331,7 +407,7 @@ Heum. Tu… tu as le pied sur ma planche à découper.
 		&lt;&lt;/if&gt;&gt;
 	&lt;&lt;/repeat&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
-&lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="7" name="Pieds bis" tags="" position="553,824.5" size="100,100">
+&lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="7" name="Pieds bis" tags="" position="550,825" size="100,100">
 &lt;span id=&quot;pnj3&quot; class=&quot;pnj&quot;&gt;&lt;/span&gt;
 
 &lt;&lt;silently&gt;&gt;
@@ -352,7 +428,7 @@ Heum. Tu… tu as le pied sur ma planche à découper.
 		&lt;&lt;include &quot;Suite&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;
 	&lt;&lt;/switch&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
-&lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="8" name="Suite bis" tags="" position="700,825.5" size="100,100">
+&lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="8" name="Suite bis" tags="" position="700,825" size="100,100">
 &lt;span id=&quot;pnj4&quot; class=&quot;pnj&quot;&gt;&lt;/span&gt;
 
 &lt;&lt;silently&gt;&gt;
@@ -376,13 +452,13 @@ Heum. Tu… tu as le pied sur ma planche à découper.
 		&lt;&lt;include &quot;Musique&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;
 	&lt;&lt;/switch&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
-&lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="9" name="Mystere" tags="" position="1001,700.5" size="100,100">
-&lt;span id=&quot;oups&quot; class=&quot;pnj&quot;&gt;&lt;/span&gt;\
+&lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="9" name="Mystere" tags="" position="1000,700" size="100,100">
+&lt;span id=&quot;oups&quot; class=&quot;pnj&quot;&gt;&lt;/span&gt;
 
 &lt;&lt;timed 1s&gt;&gt;
 	&lt;&lt;replace &quot;#oups&quot;&gt;&gt;//arbore un sourire en coin// Et tu n’as encore rien vu !
 	&lt;&lt;include &quot;Realite&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;
-&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="10" name="Realite" tags="" position="1151,699.5" size="100,100">&lt;span id=&quot;pnj6&quot; class=&quot;pnj&quot;&gt;&lt;/span&gt;
+&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="10" name="Realite" tags="" position="1150,700" size="100,100">&lt;span id=&quot;pnj6&quot; class=&quot;pnj&quot;&gt;&lt;/span&gt;
 
 &lt;span id=&quot;n1&quot; class=&quot;narration&quot;&gt;&lt;/span&gt;
 
@@ -432,7 +508,7 @@ Heum. Tu… tu as le pied sur ma planche à découper.
 		&lt;&lt;/if&gt;&gt;
 	&lt;&lt;/repeat&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
-&lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="11" name="Musique" tags="" position="850,699.5" size="100,100">
+&lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="11" name="Musique" tags="" position="850,700" size="100,100">
 &lt;span id=&quot;fifthChoice&quot;&gt;&lt;/span&gt;\
 
 &lt;&lt;silently&gt;&gt;
@@ -473,7 +549,7 @@ Heum. Tu… tu as le pied sur ma planche à découper.
 		&lt;&lt;/if&gt;&gt;
 	&lt;&lt;/repeat&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
-&lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="12" name="Musique bis" tags="" position="851,824.5" size="100,100">
+&lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="12" name="Musique bis" tags="" position="850,825" size="100,100">
 &lt;span id=&quot;pnj5&quot; class=&quot;pnj&quot;&gt;&lt;/span&gt;
 
 &lt;&lt;silently&gt;&gt;
@@ -490,7 +566,7 @@ Heum. Tu… tu as le pied sur ma planche à découper.
 		&lt;&lt;replace &quot;#pnj5&quot;&gt;&gt;&lt;&lt;include &quot;Mystere&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;
 	&lt;&lt;/switch&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
-&lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="13" name="Realite bis" tags="" position="1152,825.5" size="100,100">
+&lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="13" name="Realite bis" tags="" position="1150,825" size="100,100">
 &lt;span id=&quot;pnj7&quot; class=&quot;pnj&quot;&gt;&lt;/span&gt;
 
 &lt;&lt;silently&gt;&gt;
@@ -511,7 +587,7 @@ Heum. Tu… tu as le pied sur ma planche à découper.
 		&lt;&lt;replace &quot;#pnj7&quot;&gt;&gt;Si tu veux. Dis moi, qu’est ce que tu veux savoir ?&lt;&lt;include &quot;Interet&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;
 	&lt;&lt;/switch&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
-&lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="14" name="Inquiete" tags="" position="1299,699.5" size="100,100">
+&lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="14" name="Inquiete" tags="" position="1300,700" size="100,100">
 &lt;span id=&quot;seventhChoice&quot;&gt;&lt;/span&gt;\
 
 &lt;&lt;silently&gt;&gt;
@@ -552,7 +628,7 @@ Heum. Tu… tu as le pied sur ma planche à découper.
 		&lt;&lt;/if&gt;&gt;
 	&lt;&lt;/repeat&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
-&lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="15" name="Intime" tags="" position="1601,700.5" size="100,100">
+&lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="15" name="Intime" tags="" position="1600,700" size="100,100">
 &lt;span id=&quot;ninthChoice&quot;&gt;&lt;/span&gt;\
 
 &lt;&lt;silently&gt;&gt;
@@ -593,7 +669,7 @@ Heum. Tu… tu as le pied sur ma planche à découper.
 		&lt;&lt;/if&gt;&gt;
 	&lt;&lt;/repeat&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
-&lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="16" name="Interet" tags="" position="1452,699.5" size="100,100">
+&lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="16" name="Interet" tags="" position="1450,700" size="100,100">
 
 &lt;span id=&quot;eigthChoice&quot;&gt;&lt;/span&gt;\
 
@@ -635,7 +711,7 @@ Heum. Tu… tu as le pied sur ma planche à découper.
 		&lt;&lt;/if&gt;&gt;
 	&lt;&lt;/repeat&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
-&lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="17" name="Inquiete bis" tags="" position="1300,825.5" size="100,100">
+&lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="17" name="Inquiete bis" tags="" position="1300,825" size="100,100">
 &lt;span id=&quot;pnj8&quot; class=&quot;pnj&quot;&gt;&lt;/span&gt;
 
 &lt;span id=&quot;player2&quot; class=&quot;player&quot;&gt;&lt;/span&gt;
@@ -646,34 +722,35 @@ Heum. Tu… tu as le pied sur ma planche à découper.
 
 &lt;&lt;next&gt;&gt;
 	&lt;&lt;replace &quot;#player2&quot;&gt;&gt;Heu, merci. Du coup je peux te poser une question ?
-	&lt;&lt;include &quot;Interet&quot;&gt;&gt;&lt;&lt;replace&gt;&gt;
+	&lt;&lt;include &quot;Interet&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
-&lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="18" name="Interet bis" tags="" position="1452,825.5" size="100,100">
+&lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="18" name="Interet bis" tags="" position="1450,825" size="100,100">
 &lt;span id=&quot;pnj9&quot; class=&quot;pnj&quot;&gt;&lt;/span&gt;
 
 &lt;&lt;silently&gt;&gt;
 &lt;&lt;timed 1s&gt;&gt;
-	&lt;&lt;if $selected[7][0] is &quot;Qu’est-ce que tu déteste
-&quot;&gt;&gt;
+	&lt;&lt;if $selected[7][0] is &quot;Qu’est-ce que tu déteste&quot;&gt;&gt;
 		&lt;&lt;set _answer to &quot;pas&quot;&gt;&gt;
 	&lt;&lt;else&gt;&gt;
 		&lt;&lt;set _answer to &quot;aime&quot;&gt;&gt;
 	&lt;&lt;/if&gt;&gt;
 	&lt;&lt;switch _answer&gt;&gt;
 	&lt;&lt;case &quot;pas&quot;&gt;&gt;
-		&lt;&lt;replace &quot;#pnj9&quot;&gt;&gt;Je déteste ne pas avoir le temps de faire ce que je veux. Il y a plein de choses que je ne peux pas faire, mais ce n’est pas une question d’envie : c’est une question d’avoir mille choses à faire. &lt;&lt;include &quot;Intime&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;
+		&lt;&lt;replace &quot;#pnj9&quot;&gt;&gt;Je déteste ne pas avoir le temps de faire ce que je veux. Il y a plein de choses que je ne peux pas faire, mais ce n’est pas une question d’envie : c’est une question d’avoir mille choses à faire.
+		&lt;&lt;include &quot;Intime&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;
 	&lt;&lt;case &quot;aime&quot;&gt;&gt;
-		&lt;&lt;replace &quot;#pnj9&quot;&gt;&gt;//sourit// J’adore jouer de la musique. C’est une chose que je pourrais jamais abandonner dans la vie. C’est aussi pour ça que je passe autant de temps aux festivals, c’est une manière de vivre et de partager cette passion !&lt;&lt;include &quot;Fin&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;
+		&lt;&lt;replace &quot;#pnj9&quot;&gt;&gt;//sourit// J’adore jouer de la musique. C’est une chose que je pourrais jamais abandonner dans la vie. C’est aussi pour ça que je passe autant de temps aux festivals, c’est une manière de vivre et de partager cette passion !
+		&lt;&lt;include &quot;Fin&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;
 	&lt;&lt;/switch&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
-&lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="19" name="Fin" tags="" position="1750,699.5" size="100,100">
+&lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="19" name="Fin" tags="" position="1750,700" size="100,100">
 &lt;span id=&quot;pnj11&quot; class=&quot;pnj&quot;&gt;&lt;/span&gt;
 
 &lt;span id=&quot;tenthChoice&quot; class=&quot;choice&quot;&gt;&lt;/span&gt;
 
 &lt;&lt;silently&gt;&gt;
 &lt;&lt;timed 1s&gt;&gt;
-	&lt;&lt;replace &quot;#pnj11&quot;&gt;&gt;Enfin brouette, je suis désoléx, je ne veux parler trop de moi non plus ou occuper trop de place…&lt;&lt;\replace&gt;&gt;
+	&lt;&lt;replace &quot;#pnj11&quot;&gt;&gt;Enfin brouette, je suis désoléx, je ne veux parler trop de moi non plus ou occuper trop de place…&lt;&lt;/replace&gt;&gt;
 	
 &lt;&lt;next&gt;&gt;
 
@@ -713,7 +790,7 @@ Heum. Tu… tu as le pied sur ma planche à découper.
 		&lt;&lt;/if&gt;&gt;
 	&lt;&lt;/repeat&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
-&lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="20" name="Intime bis" tags="" position="1600,824.5" size="100,100">
+&lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="20" name="Intime bis" tags="" position="1600,825" size="100,100">
 &lt;span id=&quot;pnj10&quot; class=&quot;pnj&quot;&gt;&lt;/span&gt;
 
 &lt;&lt;silently&gt;&gt;
@@ -741,7 +818,7 @@ Heum. Tu… tu as le pied sur ma planche à découper.
 		&lt;&lt;include &quot;Fin&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;
 	&lt;&lt;/switch&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
-&lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="21" name="Fin bis" tags="" position="1752,825.5" size="100,100">
+&lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="21" name="Fin bis" tags="" position="1750,825" size="100,100">
 &lt;span id=&quot;pnj12&quot; class=&quot;pnj&quot;&gt;&lt;/span&gt;
 
 &lt;span id=&quot;n2&quot; class=&quot;narration&quot;&gt;&lt;/span&gt;
