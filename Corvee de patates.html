@@ -98,7 +98,7 @@ var LZString={_keyStr:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01234
 		<div id="init-lacking">Your browser lacks required capabilities. Please upgrade it or switch to another to continue.</div>
 		<div id="init-loading"><div>Loading&hellip;</div></div>
 	</div>
-	<tw-storydata name="Corvee de patates" startnode="2" creator="Twine" creator-version="2.3.15" ifid="6EE1BB98-4624-4A9D-A7BB-D3DA58957955" zoom="1" format="SugarCube" format-version="2.34.1" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">.player {
+	<tw-storydata name="Corvee de patates" startnode="1" creator="Twine" creator-version="2.3.15" ifid="6EE1BB98-4624-4A9D-A7BB-D3DA58957955" zoom="1" format="SugarCube" format-version="2.34.1" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">.player {
   color: red;
 }
 
@@ -113,47 +113,7 @@ var LZString={_keyStr:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01234
 .choice {
   color: pink;
   font-weight: bold;
-}</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Tech" tags="" position="824,395" size="100,100">/* Exemple de la roulette à texte */
-Que voulez-vous dire ?
-
-&lt;&lt;silently&gt;&gt;
-/* Variable indiquant si le choix a été fait*/
-&lt;&lt;set $choice to false&gt;&gt;
-
-/* Options de dialogue */
-&lt;&lt;set $s1 to [&quot;J&#39;aime&quot;,&quot;J&#39;adore&quot;, &quot;Je déteste&quot;]&gt;&gt;
-&lt;&lt;set $s2 to [&quot;vraiment&quot;, &quot;un peu&quot;, &quot;avec bonheur&quot;]&gt;&gt;
-&lt;&lt;set $s3 to [&quot;le chocolat.&quot;, &quot;le curling.&quot;, &quot;les paillettes.&quot;]&gt;&gt;
-
-/* Variables contenant les options choisies */
-&lt;&lt;set $select1 to &quot;&quot;&gt;&gt;
-&lt;&lt;set $select2 to &quot;&quot;&gt;&gt;
-&lt;&lt;set $select3 to &quot;&quot;&gt;&gt;
-
-/* Boucle tant que le choix n&#39;est pas fait */
-&lt;&lt;repeat 0.5s&gt;&gt;
-	&lt;&lt;if $choice is false&gt;&gt;
-		/* Choisit une nouvelle option au hasard pour le premier segment */
-		&lt;&lt;set $select1 to either($s1)&gt;&gt;
-		/* Remplace le texte par cette nouvelle option */
-		&lt;&lt;replace &quot;#first&quot;&gt;&gt;$select1&lt;&lt;/replace&gt;&gt;
-		/* Meme choise pour les deuxièmes et troisièmes segments */
-		&lt;&lt;set $select2 to either($s2)&gt;&gt;
-		&lt;&lt;replace &quot;#second&quot;&gt;&gt;$select2&lt;&lt;/replace&gt;&gt;
-		&lt;&lt;set $select3 to either($s3)&gt;&gt;
-		&lt;&lt;replace &quot;#third&quot;&gt;&gt;$select3&lt;&lt;/replace&gt;&gt;
-	&lt;&lt;else&gt;&gt;
-		/* Choix fait, le résultat est affiché à la place du lien &quot;result&quot; */
-		&lt;&lt;replace &quot;#result&quot;&gt;&gt;Vous avez donc décidé de dire : $select1 $select2 $select3&lt;&lt;/replace&gt;&gt;
-		/* On arrete la répétition */
-		&lt;&lt;stop&gt;&gt;
-	&lt;&lt;/if&gt;&gt;
-&lt;&lt;/repeat&gt;&gt;
-&lt;&lt;/silently&gt;&gt;
-/* Les options qui défilent */
-&lt;span id=&quot;first&quot;&gt;$select1&lt;/span&gt; &lt;span id=&quot;second&quot;&gt;$select2&lt;/span&gt; &lt;span id=&quot;third&quot;&gt;$select3&lt;/span&gt;
-/* Contient initialement un lien pour fixer le choix */
-&lt;span id=&quot;result&quot;&gt;&lt;&lt;link &quot;Je dis ça !&quot;&gt;&gt;&lt;&lt;set $choice to true&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/span&gt;</tw-passagedata><tw-passagedata pid="2" name="Introduction" tags="" position="202,699" size="100,100">&lt;span class=&quot;narration&quot;&gt;Cela fait maintenant une heure que vous errez au festival technofeministe. Vous aimeriez bien engager la discussion avec quelqu’un.e et apporter votre aide aux organisataires.
+}</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Introduction" tags="" position="202,699" size="100,100">&lt;span class=&quot;narration&quot;&gt;Cela fait maintenant une heure que vous errez au festival technofeministe. Vous aimeriez bien engager la discussion avec quelqu’un.e et apporter votre aide aux organisataires.
 
 Sur le planning, il reste un créneau de libre pour aider aux tâches culinaires. Il semblerait que ces créneaux ne soient jamais pris.
 
@@ -161,8 +121,10 @@ Sur le planning, il reste un créneau de libre pour aider aux tâches culinaires
 [[Continuer de glander|Introduction]]&lt;/span&gt;
 &lt;&lt;silently&gt;&gt;
 /* Variables contenant les options choisies */
-&lt;&lt;set $selected to [ [&quot;&quot;, &quot;&quot;, &quot;&quot;], [&quot;&quot;, &quot;&quot;, &quot;&quot;], [&quot;&quot;, &quot;&quot;, &quot;&quot;], [&quot;&quot;, &quot;&quot;, &quot;&quot;], [&quot;&quot;, &quot;&quot;, &quot;&quot;], [&quot;&quot;, &quot;&quot;, &quot;&quot;] ]&gt;&gt;
-&lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="3" name="Rencontre" tags="" position="401,699" size="100,100">&lt;span class=&quot;narration&quot;&gt;Vous vous inscrivez au planning. Peu de temps après, vous vous rendez à la cuisine collective. Une personne se tient assise à table, en train d’éplucher des pommes de terre d’un geste déterminé et méthodique.&lt;/span&gt;
+&lt;&lt;set $selected to [ [&quot;&quot;, &quot;&quot;, &quot;&quot;], [&quot;&quot;, &quot;&quot;, &quot;&quot;], [&quot;&quot;, &quot;&quot;, &quot;&quot;], [&quot;&quot;, &quot;&quot;, &quot;&quot;], [&quot;&quot;, &quot;&quot;, &quot;&quot;], [&quot;&quot;, &quot;&quot;, &quot;&quot;], [&quot;&quot;, &quot;&quot;, &quot;&quot;], [&quot;&quot;, &quot;&quot;, &quot;&quot;], [&quot;&quot;, &quot;&quot;, &quot;&quot;], [&quot;&quot;, &quot;&quot;, &quot;&quot;], [&quot;&quot;, &quot;&quot;, &quot;&quot;], [&quot;&quot;, &quot;&quot;, &quot;&quot;], [&quot;&quot;, &quot;&quot;, &quot;&quot;], [&quot;&quot;, &quot;&quot;, &quot;&quot;] ]&gt;&gt;
+
+&lt;&lt;set $timer to &quot;1s&quot;&gt;&gt;
+&lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="2" name="Rencontre" tags="" position="401,699" size="100,100">&lt;span class=&quot;narration&quot;&gt;Vous vous inscrivez au planning. Peu de temps après, vous vous rendez à la cuisine collective. Une personne se tient assise à table, en train d’éplucher des pommes de terre d’un geste déterminé et méthodique.&lt;/span&gt;
 
 &lt;&lt;timed 1s&gt;&gt; \
 	&lt;span id=&quot;firstChoice&quot;&gt;&lt;span id=&quot;first&quot; class=&quot;choice&quot;&gt;$selected[0][0]&lt;/span&gt; &lt;span id=&quot;second&quot; class=&quot;choice&quot;&gt;$selected[0][1]&lt;/span&gt; &lt;span id=&quot;third&quot; class=&quot;choice&quot;&gt;$selected[0][2]&lt;/span&gt;
@@ -179,7 +141,7 @@ Sur le planning, il reste un créneau de libre pour aider aux tâches culinaires
 &lt;&lt;set $s3 to [&quot;éplucher les patates ?&quot;, &quot;préparer la bouffe ?&quot;, &quot;vivre un grand moment d&#39;éclate ?&quot;]&gt;&gt;
 
 /* Boucle tant que le choix n&#39;est pas fait */
-&lt;&lt;repeat 1s&gt;&gt;
+&lt;&lt;repeat $timer&gt;&gt;
 	&lt;&lt;if $choice is false&gt;&gt;
 		/* Choisit une nouvelle option au hasard pour le premier segment */
 		&lt;&lt;set $selected[0][0] to either($s1)&gt;&gt;
@@ -200,7 +162,7 @@ Sur le planning, il reste un créneau de libre pour aider aux tâches culinaires
 &lt;&lt;/repeat&gt;&gt;
 &lt;&lt;/silently&gt;&gt;\
 
-</tw-passagedata><tw-passagedata pid="4" name="Rencontre bis" tags="" position="402,825" size="100,100">
+</tw-passagedata><tw-passagedata pid="3" name="Rencontre bis" tags="" position="402,825" size="100,100">
 &lt;span id=&quot;pnj1&quot; class=&quot;pnj&quot;&gt;&lt;/span&gt;
 
 &lt;span id=&quot;secondChoice&quot;&gt;&lt;/span&gt;\
@@ -241,7 +203,7 @@ Sur le planning, il reste un créneau de libre pour aider aux tâches culinaires
 	&lt;&lt;link &quot;Je dis ça !&quot;&gt;&gt;&lt;&lt;set $choice to true&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/replace&gt;&gt;
 	
 	/* Boucle tant que le choix n&#39;est pas fait */
-	&lt;&lt;repeat 1s&gt;&gt;
+	&lt;&lt;repeat $timer&gt;&gt;
 		&lt;&lt;if $choice is false&gt;&gt;
 			/* Choisit une nouvelle option au hasard pour le premier segment */
 			&lt;&lt;set $selected[1][0] to either($s1)&gt;&gt;
@@ -261,12 +223,12 @@ Sur le planning, il reste un créneau de libre pour aider aux tâches culinaires
 		&lt;&lt;/if&gt;&gt;
 	&lt;&lt;/repeat&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
-&lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="5" name="Rencontre ter" tags="" position="402,952" size="100,100">
+&lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="4" name="Rencontre ter" tags="" position="402,952" size="100,100">
 &lt;span id=&quot;pnj2&quot; class=&quot;pnj&quot;&gt;&lt;/span&gt;
 
 &lt;&lt;silently&gt;&gt;
 &lt;&lt;timed 1s&gt;&gt;
-	&lt;&lt;if $selected[1][2] is &quot;ton héro.ïne.&quot;&gt;&gt;
+	&lt;&lt;if $selected[1][2] is &quot;ton héro.îne.&quot;&gt;&gt;
 		&lt;&lt;set _answer to &quot;gene&quot;&gt;&gt;
 	&lt;&lt;elseif $selected[1][1] is &quot;Je suis&quot; or $selected[1][1] is &quot;J&#39;avais envie d&#39;être&quot; and $selected[1][2] is &quot;comis·e d&#39;épluchure.&quot;&gt;&gt;
 		&lt;&lt;set _answer to &quot;enthusiaste&quot;&gt;&gt;
@@ -274,17 +236,21 @@ Sur le planning, il reste un créneau de libre pour aider aux tâches culinaires
 		&lt;&lt;set _answer to &quot;generique&quot;&gt;&gt;
 	&lt;&lt;/if&gt;&gt;
 	&lt;&lt;switch _answer&gt;&gt;
+	&lt;&lt;case &quot;gene&quot;&gt;&gt;
+		&lt;&lt;replace &quot;#pnj2&quot;&gt;&gt;&lt;span class=&quot;narration&quot;&gt;Vous prenez une posture excessivement romanesque, pied sur la table.&lt;/span&gt;
+		
+Heum. Tu… tu as le pied sur ma planche à découper.
+&lt;&lt;include &quot;Pieds&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;
 	&lt;&lt;case &quot;enthusiaste&quot;&gt;&gt;
 		&lt;&lt;replace &quot;#pnj2&quot;&gt;&gt;Trop cool, je commençais à m’ennuyer seulx. Attrape cet économe !
 		&lt;&lt;include &quot;Suite&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;
 	&lt;&lt;case &quot;generique&quot;&gt;&gt;
 		&lt;&lt;replace &quot;#pnj2&quot;&gt;&gt;Ah, cool, cool cool cool cool. //hôchements de tête cool.//
 		&lt;&lt;include &quot;Suite&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;
-	&lt;&lt;case &quot;gene&quot;&gt;&gt;
-		&lt;&lt;replace &quot;#pnj2&quot;&gt;&gt;&lt;&lt;include &quot;Pieds&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;
 	&lt;&lt;/switch&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
-&lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="6" name="Pieds" tags="" position="550,699" size="100,100">&lt;span id=&quot;thirdChoice&quot;&gt;&lt;/span&gt;\
+&lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="5" name="Pieds" tags="" position="550,699" size="100,100">
+&lt;span id=&quot;thirdChoice&quot;&gt;&lt;/span&gt;\
 
 &lt;&lt;silently&gt;&gt;
 &lt;&lt;timed 1s&gt;&gt;
@@ -300,11 +266,11 @@ Sur le planning, il reste un créneau de libre pour aider aux tâches culinaires
 	&lt;&lt;set $selected[2][0] to either($s1)&gt;&gt;
 	&lt;&lt;set $selected[2][1] to either($s2)&gt;&gt;
 	&lt;&lt;set $selected[2][2] to either($s3)&gt;&gt;
-	&lt;&lt;replace &quot;#secondChoice&quot;&gt;&gt;&lt;span id=&quot;first&quot; class=&quot;choice&quot;&gt;$selected[2][0]&lt;/span&gt; &lt;span id=&quot;second&quot; class=&quot;choice&quot;&gt;$selected[2][1]&lt;/span&gt; &lt;span id=&quot;third&quot; class=&quot;choice&quot;&gt;$selected[2][2]&lt;/span&gt;
+	&lt;&lt;replace &quot;#thirdChoice&quot;&gt;&gt;&lt;span id=&quot;first&quot; class=&quot;choice&quot;&gt;$selected[2][0]&lt;/span&gt; &lt;span id=&quot;second&quot; class=&quot;choice&quot;&gt;$selected[2][1]&lt;/span&gt; &lt;span id=&quot;third&quot; class=&quot;choice&quot;&gt;$selected[2][2]&lt;/span&gt;
 	&lt;&lt;link &quot;Je dis ça !&quot;&gt;&gt;&lt;&lt;set $choice to true&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/replace&gt;&gt;
 	
 	/* Boucle tant que le choix n&#39;est pas fait */
-	&lt;&lt;repeat 1s&gt;&gt;
+	&lt;&lt;repeat $timer&gt;&gt;
 		&lt;&lt;if $choice is false&gt;&gt;
 			/* Choisit une nouvelle option au hasard pour le premier segment */
 			&lt;&lt;set $selected[2][0] to either($s1)&gt;&gt;
@@ -324,8 +290,7 @@ Sur le planning, il reste un créneau de libre pour aider aux tâches culinaires
 		&lt;&lt;/if&gt;&gt;
 	&lt;&lt;/repeat&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
-&lt;&lt;/silently&gt;&gt;
-</tw-passagedata><tw-passagedata pid="7" name="Suite" tags="" position="701,699" size="100,100">
+&lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="6" name="Suite" tags="" position="701,699" size="100,100">
 &lt;span id=&quot;fourthChoice&quot;&gt;&lt;/span&gt;\
 
 &lt;&lt;silently&gt;&gt;
@@ -339,52 +304,472 @@ Sur le planning, il reste un créneau de libre pour aider aux tâches culinaires
 	&lt;&lt;set $s3 to [&quot;ce festival ?&quot;, &quot;//geste vague// tout ça ?&quot;, &quot;tout ce qui est son et lumière là ?&quot;]&gt;&gt;
 	
 	/* Propose le choix */
-	&lt;&lt;set $selected[4][0] to either($s1)&gt;&gt;
-	&lt;&lt;set $selected[4][1] to either($s2)&gt;&gt;
-	&lt;&lt;set $selected[4][2] to either($s3)&gt;&gt;
-	&lt;&lt;replace &quot;#fourthChoice&quot;&gt;&gt;&lt;span id=&quot;first&quot; class=&quot;choice&quot;&gt;$selected[4][0]&lt;/span&gt; &lt;span id=&quot;second&quot; class=&quot;choice&quot;&gt;$selected[4][1]&lt;/span&gt; &lt;span id=&quot;third&quot; class=&quot;choice&quot;&gt;$selected[4][2]&lt;/span&gt;
+	&lt;&lt;set $selected[3][0] to either($s1)&gt;&gt;
+	&lt;&lt;set $selected[3][1] to either($s2)&gt;&gt;
+	&lt;&lt;set $selected[3][2] to either($s3)&gt;&gt;
+	&lt;&lt;replace &quot;#fourthChoice&quot;&gt;&gt;&lt;span id=&quot;first&quot; class=&quot;choice&quot;&gt;$selected[3][0]&lt;/span&gt; &lt;span id=&quot;second&quot; class=&quot;choice&quot;&gt;$selected[3][1]&lt;/span&gt; &lt;span id=&quot;third&quot; class=&quot;choice&quot;&gt;$selected[3][2]&lt;/span&gt;
 	&lt;&lt;link &quot;Je dis ça !&quot;&gt;&gt;&lt;&lt;set $choice to true&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/replace&gt;&gt;
 	
 	/* Boucle tant que le choix n&#39;est pas fait */
-	&lt;&lt;repeat 1s&gt;&gt;
+	&lt;&lt;repeat $timer&gt;&gt;
 		&lt;&lt;if $choice is false&gt;&gt;
 			/* Choisit une nouvelle option au hasard pour le premier segment */
-			&lt;&lt;set $selected[4][0] to either($s1)&gt;&gt;
+			&lt;&lt;set $selected[3][0] to either($s1)&gt;&gt;
 			/* Remplace le texte par cette nouvelle option */
-			&lt;&lt;replace &quot;#first&quot;&gt;&gt;$selected[1][0]&lt;&lt;/replace&gt;&gt;
+			&lt;&lt;replace &quot;#first&quot;&gt;&gt;$selected[3][0]&lt;&lt;/replace&gt;&gt;
 			/* Meme choise pour les deuxièmes et troisièmes segments */
-			&lt;&lt;set $selected[4][1] to either($s2)&gt;&gt;
-			&lt;&lt;replace &quot;#second&quot;&gt;&gt;$selected[1][1]&lt;&lt;/replace&gt;&gt;
-			&lt;&lt;set $selected[4][2] to either($s3)&gt;&gt;
-			&lt;&lt;replace &quot;#third&quot;&gt;&gt;$selected[1][2]&lt;&lt;/replace&gt;&gt;
+			&lt;&lt;set $selected[3][1] to either($s2)&gt;&gt;
+			&lt;&lt;replace &quot;#second&quot;&gt;&gt;$selected[3][1]&lt;&lt;/replace&gt;&gt;
+			&lt;&lt;set $selected[3][2] to either($s3)&gt;&gt;
+			&lt;&lt;replace &quot;#third&quot;&gt;&gt;$selected[3][2]&lt;&lt;/replace&gt;&gt;
 		&lt;&lt;else&gt;&gt;
 			/* Choix fait */
-			&lt;&lt;replace &quot;#fourthChoice&quot;&gt;&gt;&lt;span class=&quot;player&quot;&gt;$selected[1][0] $selected[1][1] $selected[1][2]&lt;/span&gt;
-			POUR L&#39;INSTANT ON S&#39;ARRETE LA&lt;&lt;/replace&gt;&gt;
+			&lt;&lt;replace &quot;#fourthChoice&quot;&gt;&gt;&lt;span class=&quot;player&quot;&gt;$selected[3][0] $selected[3][1] $selected[3][2]&lt;/span&gt;
+			&lt;&lt;include &quot;Suite bis&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;
 			/* On arrete la répétition */
 			&lt;&lt;stop&gt;&gt;
 		&lt;&lt;/if&gt;&gt;
 	&lt;&lt;/repeat&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
-&lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="8" name="Pieds bis" tags="" position="553,824.5" size="100,100">
+&lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="7" name="Pieds bis" tags="" position="553,824.5" size="100,100">
 &lt;span id=&quot;pnj3&quot; class=&quot;pnj&quot;&gt;&lt;/span&gt;
 
 &lt;&lt;silently&gt;&gt;
 &lt;&lt;timed 1s&gt;&gt;
-	&lt;&lt;if $selected[3][1] is &quot;J’en n’ai rien à foutre !!&quot;&gt;&gt;
+	&lt;&lt;if $selected[2][1] is &quot;J’en n’ai rien à foutre !!&quot;&gt;&gt;
 		&lt;&lt;set _answer to &quot;mood&quot;&gt;&gt;
 	&lt;&lt;else&gt;&gt;
 		&lt;&lt;set _answer to &quot;pardon&quot;&gt;&gt;
 	&lt;&lt;/if&gt;&gt;
 	&lt;&lt;switch _answer&gt;&gt;
 	&lt;&lt;case &quot;mood&quot;&gt;&gt;
-		&lt;&lt;replace &quot;#pnj3&quot;&gt;&gt;Je n’ai pas besoin de ton aide. Tu peux partir ?&lt;&lt;/replace&gt;&gt;
-		[[Recommencer|Introduction]]
+		&lt;&lt;replace &quot;#pnj3&quot;&gt;&gt;Je n’ai pas besoin de ton aide. Tu peux partir ?
+		
+		[[Recommencer|Introduction]]&lt;&lt;/replace&gt;&gt;
+		
 	&lt;&lt;case &quot;pardon&quot;&gt;&gt;
-		&lt;&lt;replace &quot;#pnj2&quot;&gt;&gt;Non mais c’est pas grave. On va dire que c’est original. Tu viens m’aider ?
+		&lt;&lt;replace &quot;#pnj3&quot;&gt;&gt;Non mais c’est pas grave. On va dire que c’est original. Tu viens m’aider ?
 		&lt;&lt;include &quot;Suite&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;
-	&lt;&lt;case &quot;gene&quot;&gt;&gt;
-		&lt;&lt;replace &quot;#pnj2&quot;&gt;&gt;&lt;&lt;include &quot;Pieds&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;
+	&lt;&lt;/switch&gt;&gt;
+&lt;&lt;/timed&gt;&gt;
+&lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="8" name="Suite bis" tags="" position="700,825.5" size="100,100">
+&lt;span id=&quot;pnj4&quot; class=&quot;pnj&quot;&gt;&lt;/span&gt;
+
+&lt;&lt;silently&gt;&gt;
+&lt;&lt;timed 1s&gt;&gt;
+	&lt;&lt;if $selected[3][2] is &quot;tout ce qui est son et lumière là ?&quot;&gt;&gt;
+		&lt;&lt;set _answer to &quot;musical&quot;&gt;&gt;
+	&lt;&lt;elseif $selected[3][0] isnot &quot;C’est la première fois que&quot; and $selected[3][1] is &quot;tu es super impliquéx dans&quot; and $selected[3][2] is &quot;ce festival ?&quot;&gt;&gt;
+		&lt;&lt;set _answer to &quot;flirty&quot;&gt;&gt;
+	&lt;&lt;else&gt;&gt;
+		&lt;&lt;set _answer to &quot;informative&quot;&gt;&gt;
+	&lt;&lt;/if&gt;&gt;
+	&lt;&lt;switch _answer&gt;&gt;
+	&lt;&lt;case &quot;flirty&quot;&gt;&gt;
+		&lt;&lt;replace &quot;#pnj4&quot;&gt;&gt;//affiche un sourire satisfait// Oui, toujours ! J’aime beaucoup m’impliquer !
+		&lt;&lt;include &quot;Mystere&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;
+	&lt;&lt;case &quot;informative&quot;&gt;&gt;
+		&lt;&lt;replace &quot;#pnj4&quot;&gt;&gt;Ce n’est pas la première fois que je viens. Je suis embauchée pour cuisiner depuis 5 ans.
+		&lt;&lt;include &quot;Realite&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;
+	&lt;&lt;case &quot;musical&quot;&gt;&gt;
+		&lt;&lt;replace &quot;#pnj4&quot;&gt;&gt;Oui je suis spécialiste de la Tuberosum core, je récupère l’énergie que contiennent les patates et je fais du noise avec…
+		&lt;&lt;include &quot;Musique&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;
+	&lt;&lt;/switch&gt;&gt;
+&lt;&lt;/timed&gt;&gt;
+&lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="9" name="Mystere" tags="" position="1001,700.5" size="100,100">
+&lt;span id=&quot;oups&quot; class=&quot;pnj&quot;&gt;&lt;/span&gt;\
+
+&lt;&lt;timed 1s&gt;&gt;
+	&lt;&lt;replace &quot;#oups&quot;&gt;&gt;//arbore un sourire en coin// Et tu n’as encore rien vu !
+	&lt;&lt;include &quot;Realite&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;
+&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="10" name="Realite" tags="" position="1151,699.5" size="100,100">&lt;span id=&quot;pnj6&quot; class=&quot;pnj&quot;&gt;&lt;/span&gt;
+
+&lt;span id=&quot;n1&quot; class=&quot;narration&quot;&gt;&lt;/span&gt;
+
+&lt;span id=&quot;sixthChoice&quot; class=&quot;choice&quot;&gt;&lt;/span&gt;\
+
+&lt;&lt;silently&gt;&gt;
+&lt;&lt;timed 1s&gt;&gt;
+	&lt;&lt;replace &quot;#pnj6&quot;&gt;&gt;En vrai, je fais de la musique mais je passe pas mal de temps en cuisine. Il manque des personnes pour les tâches du quotidien et tout le monde est toujours occupé à faire mille choses.&lt;&lt;/replace&gt;&gt;
+	
+&lt;&lt;next&gt;&gt;
+	&lt;&lt;replace &quot;#n1&quot;&gt;&gt;Vous vous approchez de la table de cuisine pour l’accompagner à la découpe.&lt;&lt;/replace&gt;&gt;
+	
+&lt;&lt;next&gt;&gt;
+	/* Variable indiquant si le choix a été fait */
+	&lt;&lt;set $choice to false&gt;&gt;
+	
+	/* Options de dialogue */
+	&lt;&lt;set $s1 to [&quot;Oui c’est vrai mais&quot;, &quot;Si la solitude te plait…&quot;, &quot;Et du coup&quot;]&gt;&gt;
+	&lt;&lt;set $s2 to [&quot;toi tu n’as pas envie de&quot;, &quot;tu auras du temps pour&quot;, &quot;//groumph ce couteau ne coupe pas//&quot;]&gt;&gt;
+	&lt;&lt;set $s3 to [&quot;faire mille autre chose? ?&quot;, &quot;me parler un peu de toi ?&quot;, &quot;//parler dans sa tête à la patate mal coupée et oublier la conversation en cours//&quot;]&gt;&gt;
+	
+	/* Propose le choix */
+	&lt;&lt;set $selected[5][0] to either($s1)&gt;&gt;
+	&lt;&lt;set $selected[5][1] to either($s2)&gt;&gt;
+	&lt;&lt;set $selected[5][2] to either($s3)&gt;&gt;
+	&lt;&lt;replace &quot;#sixthChoice&quot;&gt;&gt;&lt;span id=&quot;first&quot; class=&quot;choice&quot;&gt;$selected[5][0]&lt;/span&gt; &lt;span id=&quot;second&quot; class=&quot;choice&quot;&gt;$selected[5][1]&lt;/span&gt; &lt;span id=&quot;third&quot; class=&quot;choice&quot;&gt;$selected[5][2]&lt;/span&gt;
+	&lt;&lt;link &quot;Je dis ça !&quot;&gt;&gt;&lt;&lt;set $choice to true&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/replace&gt;&gt;
+	
+	/* Boucle tant que le choix n&#39;est pas fait */
+	&lt;&lt;repeat $timer&gt;&gt;
+		&lt;&lt;if $choice is false&gt;&gt;
+			/* Choisit une nouvelle option au hasard pour le premier segment */
+			&lt;&lt;set $selected[5][0] to either($s1)&gt;&gt;
+			/* Remplace le texte par cette nouvelle option */
+			&lt;&lt;replace &quot;#first&quot;&gt;&gt;$selected[5][0]&lt;&lt;/replace&gt;&gt;
+			/* Meme choise pour les deuxièmes et troisièmes segments */
+			&lt;&lt;set $selected[5][1] to either($s2)&gt;&gt;
+			&lt;&lt;replace &quot;#second&quot;&gt;&gt;$selected[5][1]&lt;&lt;/replace&gt;&gt;
+			&lt;&lt;set $selected[5][2] to either($s3)&gt;&gt;
+			&lt;&lt;replace &quot;#third&quot;&gt;&gt;$selected[5][2]&lt;&lt;/replace&gt;&gt;
+		&lt;&lt;else&gt;&gt;
+			/* Choix fait */
+			&lt;&lt;replace &quot;#sixthChoice&quot;&gt;&gt;&lt;span class=&quot;player&quot;&gt;$selected[5][0] $selected[5][1] $selected[5][2]&lt;/span&gt;
+			&lt;&lt;include &quot;Realite bis&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;
+			/* On arrete la répétition */
+			&lt;&lt;stop&gt;&gt;
+		&lt;&lt;/if&gt;&gt;
+	&lt;&lt;/repeat&gt;&gt;
+&lt;&lt;/timed&gt;&gt;
+&lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="11" name="Musique" tags="" position="850,699.5" size="100,100">
+&lt;span id=&quot;fifthChoice&quot;&gt;&lt;/span&gt;\
+
+&lt;&lt;silently&gt;&gt;
+&lt;&lt;timed 1s&gt;&gt;
+	/* Variable indiquant si le choix a été fait */
+	&lt;&lt;set $choice to false&gt;&gt;
+
+	/* Options de dialogue */
+	&lt;&lt;set $s1 to [&quot;Haha J’aimerai bien voir ça !&quot;, &quot;Sans blague ! C’est quoi ton hack ?&quot;, &quot;Arrête de te moquer de moi !&quot;]&gt;&gt;
+	&lt;&lt;set $s2 to [&quot;Tu as aussi découvert comment faire&quot;, &quot;Je parie que tu es&quot;, &quot;Et puis quoi encore ?&quot;]&gt;&gt;
+	&lt;&lt;set $s3 to [&quot;un transformateur qui augmente la puissance du courant ?&quot;, &quot;comique de cuisine ?&quot;, &quot;dj internationalement reconnue ?&quot;]&gt;&gt;
+	
+	/* Propose le choix */
+	&lt;&lt;set $selected[4][0] to either($s1)&gt;&gt;
+	&lt;&lt;set $selected[4][1] to either($s2)&gt;&gt;
+	&lt;&lt;set $selected[4][2] to either($s3)&gt;&gt;
+	&lt;&lt;replace &quot;#fifthChoice&quot;&gt;&gt;&lt;span id=&quot;first&quot; class=&quot;choice&quot;&gt;$selected[4][0]&lt;/span&gt; &lt;span id=&quot;second&quot; class=&quot;choice&quot;&gt;$selected[4][1]&lt;/span&gt; &lt;span id=&quot;third&quot; class=&quot;choice&quot;&gt;$selected[4][2]&lt;/span&gt;
+	&lt;&lt;link &quot;Je dis ça !&quot;&gt;&gt;&lt;&lt;set $choice to true&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/replace&gt;&gt;
+	
+	/* Boucle tant que le choix n&#39;est pas fait */
+	&lt;&lt;repeat $timer&gt;&gt;
+		&lt;&lt;if $choice is false&gt;&gt;
+			/* Choisit une nouvelle option au hasard pour le premier segment */
+			&lt;&lt;set $selected[4][0] to either($s1)&gt;&gt;
+			/* Remplace le texte par cette nouvelle option */
+			&lt;&lt;replace &quot;#first&quot;&gt;&gt;$selected[4][0]&lt;&lt;/replace&gt;&gt;
+			/* Meme choise pour les deuxièmes et troisièmes segments */
+			&lt;&lt;set $selected[4][1] to either($s2)&gt;&gt;
+			&lt;&lt;replace &quot;#second&quot;&gt;&gt;$selected[4][1]&lt;&lt;/replace&gt;&gt;
+			&lt;&lt;set $selected[4][2] to either($s3)&gt;&gt;
+			&lt;&lt;replace &quot;#third&quot;&gt;&gt;$selected[4][2]&lt;&lt;/replace&gt;&gt;
+		&lt;&lt;else&gt;&gt;
+			/* Choix fait */
+			&lt;&lt;replace &quot;#fifthChoice&quot;&gt;&gt;&lt;span class=&quot;player&quot;&gt;$selected[4][0] $selected[4][1] $selected[4][2]&lt;/span&gt;
+			&lt;&lt;include &quot;Musique bis&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;
+			/* On arrete la répétition */
+			&lt;&lt;stop&gt;&gt;
+		&lt;&lt;/if&gt;&gt;
+	&lt;&lt;/repeat&gt;&gt;
+&lt;&lt;/timed&gt;&gt;
+&lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="12" name="Musique bis" tags="" position="851,824.5" size="100,100">
+&lt;span id=&quot;pnj5&quot; class=&quot;pnj&quot;&gt;&lt;/span&gt;
+
+&lt;&lt;silently&gt;&gt;
+&lt;&lt;timed 1s&gt;&gt;
+	&lt;&lt;if $selected[4][0] is &quot;Arrête de te moquer de moi !&quot; or $selected[4][1] is &quot;Et puis quoi encore ?&quot;&gt;&gt;
+		&lt;&lt;set _answer to &quot;realite&quot;&gt;&gt;
+	&lt;&lt;else&gt;&gt;
+		&lt;&lt;set _answer to &quot;mystere&quot;&gt;&gt;
+	&lt;&lt;/if&gt;&gt;
+	&lt;&lt;switch _answer&gt;&gt;
+	&lt;&lt;case &quot;realite&quot;&gt;&gt;
+		&lt;&lt;replace &quot;#pnj5&quot;&gt;&gt;&lt;&lt;include &quot;Realite&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;
+	&lt;&lt;case &quot;mystere&quot;&gt;&gt;
+		&lt;&lt;replace &quot;#pnj5&quot;&gt;&gt;&lt;&lt;include &quot;Mystere&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;
+	&lt;&lt;/switch&gt;&gt;
+&lt;&lt;/timed&gt;&gt;
+&lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="13" name="Realite bis" tags="" position="1152,825.5" size="100,100">
+&lt;span id=&quot;pnj7&quot; class=&quot;pnj&quot;&gt;&lt;/span&gt;
+
+&lt;&lt;silently&gt;&gt;
+&lt;&lt;timed 1s&gt;&gt;
+	&lt;&lt;if $selected[5][1] is &quot;//groumph ce couteau ne coupe pas//&quot; or $selected[5][2] is &quot;//parler dans sa tête à la patate mal coupée et oublier la conversation en cours//&quot;&gt;&gt;
+		&lt;&lt;set _answer to &quot;inquiete&quot;&gt;&gt;
+	&lt;&lt;elseif $selected[5][2] is &quot;faire mille autre chose? ?&quot;&gt;&gt;
+		&lt;&lt;set _answer to &quot;intime&quot;&gt;&gt;
+	&lt;&lt;else&gt;&gt;
+		&lt;&lt;set _answer to &quot;interet&quot;&gt;&gt;
+	&lt;&lt;/if&gt;&gt;
+	&lt;&lt;switch _answer&gt;&gt;
+	&lt;&lt;case &quot;inquiete&quot;&gt;&gt;
+		&lt;&lt;replace &quot;#pnj7&quot;&gt;&gt;Heu ça va, tu t’en sors ? Tu as besoin d’aide ?&lt;&lt;include &quot;Inquiete&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;
+	&lt;&lt;case &quot;intime&quot;&gt;&gt;
+		&lt;&lt;replace &quot;#pnj7&quot;&gt;&gt;Bien sur que j’en ai envie, mais je me sens investie de cette mission, j’ai souvent l’impression que si je n’aide pas les gens à chaque opportunité je vais être prise pour une feignante, ou bien d’égoïste.&lt;&lt;include &quot;Intime&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;
+	&lt;&lt;case &quot;interet&quot;&gt;&gt;
+		&lt;&lt;replace &quot;#pnj7&quot;&gt;&gt;Si tu veux. Dis moi, qu’est ce que tu veux savoir ?&lt;&lt;include &quot;Interet&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;
+	&lt;&lt;/switch&gt;&gt;
+&lt;&lt;/timed&gt;&gt;
+&lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="14" name="Inquiete" tags="" position="1299,699.5" size="100,100">
+&lt;span id=&quot;seventhChoice&quot;&gt;&lt;/span&gt;\
+
+&lt;&lt;silently&gt;&gt;
+&lt;&lt;timed 1s&gt;&gt;
+	/* Variable indiquant si le choix a été fait */
+	&lt;&lt;set $choice to false&gt;&gt;
+
+	/* Options de dialogue */
+	&lt;&lt;set $s1 to [&quot;Non non !&quot;, &quot;Heu oui heu…&quot;, &quot;Heu aahh !&quot;]&gt;&gt;
+	&lt;&lt;set $s2 to [&quot;Mon couteau me fait défaut.&quot;, &quot;Tout va bien !&quot;, &quot;Aaaaaaah&quot;]&gt;&gt;
+	&lt;&lt;set $s3 to [&quot;&quot;, &quot;&quot;, &quot;&quot;]&gt;&gt;
+	
+	/* Propose le choix */
+	&lt;&lt;set $selected[6][0] to either($s1)&gt;&gt;
+	&lt;&lt;set $selected[6][1] to either($s2)&gt;&gt;
+	&lt;&lt;set $selected[6][2] to either($s3)&gt;&gt;
+	&lt;&lt;replace &quot;#seventhChoice&quot;&gt;&gt;&lt;span id=&quot;first&quot; class=&quot;choice&quot;&gt;$selected[6][0]&lt;/span&gt; &lt;span id=&quot;second&quot; class=&quot;choice&quot;&gt;$selected[6][1]&lt;/span&gt; &lt;span id=&quot;third&quot; class=&quot;choice&quot;&gt;$selected[6][2]&lt;/span&gt;
+	&lt;&lt;link &quot;Je dis ça !&quot;&gt;&gt;&lt;&lt;set $choice to true&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/replace&gt;&gt;
+	
+	/* Boucle tant que le choix n&#39;est pas fait */
+	&lt;&lt;repeat $timer&gt;&gt;
+		&lt;&lt;if $choice is false&gt;&gt;
+			/* Choisit une nouvelle option au hasard pour le premier segment */
+			&lt;&lt;set $selected[6][0] to either($s1)&gt;&gt;
+			/* Remplace le texte par cette nouvelle option */
+			&lt;&lt;replace &quot;#first&quot;&gt;&gt;$selected[6][0]&lt;&lt;/replace&gt;&gt;
+			/* Meme choise pour les deuxièmes et troisièmes segments */
+			&lt;&lt;set $selected[6][1] to either($s2)&gt;&gt;
+			&lt;&lt;replace &quot;#second&quot;&gt;&gt;$selected[6][1]&lt;&lt;/replace&gt;&gt;
+			&lt;&lt;set $selected[6][2] to either($s3)&gt;&gt;
+			&lt;&lt;replace &quot;#third&quot;&gt;&gt;$selected[6][2]&lt;&lt;/replace&gt;&gt;
+		&lt;&lt;else&gt;&gt;
+			/* Choix fait */
+			&lt;&lt;replace &quot;#seventhChoice&quot;&gt;&gt;&lt;span class=&quot;player&quot;&gt;$selected[6][0] $selected[6][1] $selected[6][2]&lt;/span&gt;
+			&lt;&lt;include &quot;Inquiete bis&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;
+			/* On arrete la répétition */
+			&lt;&lt;stop&gt;&gt;
+		&lt;&lt;/if&gt;&gt;
+	&lt;&lt;/repeat&gt;&gt;
+&lt;&lt;/timed&gt;&gt;
+&lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="15" name="Intime" tags="" position="1601,700.5" size="100,100">
+&lt;span id=&quot;ninthChoice&quot;&gt;&lt;/span&gt;\
+
+&lt;&lt;silently&gt;&gt;
+&lt;&lt;timed 1s&gt;&gt;
+	/* Variable indiquant si le choix a été fait */
+	&lt;&lt;set $choice to false&gt;&gt;
+
+	/* Options de dialogue */
+	&lt;&lt;set $s1 to [&quot;Tu sais…&quot;, &quot;Sérieusement ?&quot;, &quot;Non mais franchement…&quot;]&gt;&gt;
+	&lt;&lt;set $s2 to [&quot;Tu ne dois pas&quot;, &quot;Tu ne devrais pas&quot;, &quot;Essaie de ne pas&quot;]&gt;&gt;
+	&lt;&lt;set $s3 to [&quot;être si durx avec toi-même.&quot;, &quot;te prendre la tête.&quot;, &quot;aider les gens.&quot;]&gt;&gt;
+	
+	/* Propose le choix */
+	&lt;&lt;set $selected[8][0] to either($s1)&gt;&gt;
+	&lt;&lt;set $selected[8][1] to either($s2)&gt;&gt;
+	&lt;&lt;set $selected[8][2] to either($s3)&gt;&gt;
+	&lt;&lt;replace &quot;#ninthChoice&quot;&gt;&gt;&lt;span id=&quot;first&quot; class=&quot;choice&quot;&gt;$selected[8][0]&lt;/span&gt; &lt;span id=&quot;second&quot; class=&quot;choice&quot;&gt;$selected[8][1]&lt;/span&gt; &lt;span id=&quot;third&quot; class=&quot;choice&quot;&gt;$selected[8][2]&lt;/span&gt;
+	&lt;&lt;link &quot;Je dis ça !&quot;&gt;&gt;&lt;&lt;set $choice to true&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/replace&gt;&gt;
+	
+	/* Boucle tant que le choix n&#39;est pas fait */
+	&lt;&lt;repeat $timer&gt;&gt;
+		&lt;&lt;if $choice is false&gt;&gt;
+			/* Choisit une nouvelle option au hasard pour le premier segment */
+			&lt;&lt;set $selected[8][0] to either($s1)&gt;&gt;
+			/* Remplace le texte par cette nouvelle option */
+			&lt;&lt;replace &quot;#first&quot;&gt;&gt;$selected[8][0]&lt;&lt;/replace&gt;&gt;
+			/* Meme choise pour les deuxièmes et troisièmes segments */
+			&lt;&lt;set $selected[8][1] to either($s2)&gt;&gt;
+			&lt;&lt;replace &quot;#second&quot;&gt;&gt;$selected[8][1]&lt;&lt;/replace&gt;&gt;
+			&lt;&lt;set $selected[8][2] to either($s3)&gt;&gt;
+			&lt;&lt;replace &quot;#third&quot;&gt;&gt;$selected[8][2]&lt;&lt;/replace&gt;&gt;
+		&lt;&lt;else&gt;&gt;
+			/* Choix fait */
+			&lt;&lt;replace &quot;#ninthChoice&quot;&gt;&gt;&lt;span class=&quot;player&quot;&gt;$selected[8][0] $selected[8][1] $selected[8][2]&lt;/span&gt;
+			&lt;&lt;include &quot;Intime bis&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;
+			/* On arrete la répétition */
+			&lt;&lt;stop&gt;&gt;
+		&lt;&lt;/if&gt;&gt;
+	&lt;&lt;/repeat&gt;&gt;
+&lt;&lt;/timed&gt;&gt;
+&lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="16" name="Interet" tags="" position="1452,699.5" size="100,100">
+
+&lt;span id=&quot;eigthChoice&quot;&gt;&lt;/span&gt;\
+
+&lt;&lt;silently&gt;&gt;
+&lt;&lt;timed 1s&gt;&gt;
+	/* Variable indiquant si le choix a été fait */
+	&lt;&lt;set $choice to false&gt;&gt;
+
+	/* Options de dialogue */
+	&lt;&lt;set $s1 to [&quot;Qu’est-ce que tu aimes&quot;, &quot;Qu’est-ce que tu adores&quot;, &quot;Qu’est-ce que tu déteste&quot;]&gt;&gt;
+	&lt;&lt;set $s2 to [&quot;faire&quot;, &quot;fabriquer&quot;, &quot;créer&quot;]&gt;&gt;
+	&lt;&lt;set $s3 to [&quot;dans la vie ?&quot;, &quot;en général ?&quot;, &quot;ici ?&quot;]&gt;&gt;
+	
+	/* Propose le choix */
+	&lt;&lt;set $selected[7][0] to either($s1)&gt;&gt;
+	&lt;&lt;set $selected[7][1] to either($s2)&gt;&gt;
+	&lt;&lt;set $selected[7][2] to either($s3)&gt;&gt;
+	&lt;&lt;replace &quot;#eigthChoice&quot;&gt;&gt;&lt;span id=&quot;first&quot; class=&quot;choice&quot;&gt;$selected[7][0]&lt;/span&gt; &lt;span id=&quot;second&quot; class=&quot;choice&quot;&gt;$selected[7][1]&lt;/span&gt; &lt;span id=&quot;third&quot; class=&quot;choice&quot;&gt;$selected[7][2]&lt;/span&gt;
+	&lt;&lt;link &quot;Je dis ça !&quot;&gt;&gt;&lt;&lt;set $choice to true&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/replace&gt;&gt;
+	
+	/* Boucle tant que le choix n&#39;est pas fait */
+	&lt;&lt;repeat $timer&gt;&gt;
+		&lt;&lt;if $choice is false&gt;&gt;
+			/* Choisit une nouvelle option au hasard pour le premier segment */
+			&lt;&lt;set $selected[7][0] to either($s1)&gt;&gt;
+			/* Remplace le texte par cette nouvelle option */
+			&lt;&lt;replace &quot;#first&quot;&gt;&gt;$selected[7][0]&lt;&lt;/replace&gt;&gt;
+			/* Meme choise pour les deuxièmes et troisièmes segments */
+			&lt;&lt;set $selected[7][1] to either($s2)&gt;&gt;
+			&lt;&lt;replace &quot;#second&quot;&gt;&gt;$selected[7][1]&lt;&lt;/replace&gt;&gt;
+			&lt;&lt;set $selected[7][2] to either($s3)&gt;&gt;
+			&lt;&lt;replace &quot;#third&quot;&gt;&gt;$selected[7][2]&lt;&lt;/replace&gt;&gt;
+		&lt;&lt;else&gt;&gt;
+			/* Choix fait */
+			&lt;&lt;replace &quot;#eigthChoice&quot;&gt;&gt;&lt;span class=&quot;player&quot;&gt;$selected[7][0] $selected[7][1] $selected[7][2]&lt;/span&gt;
+			&lt;&lt;include &quot;Interet bis&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;
+			/* On arrete la répétition */
+			&lt;&lt;stop&gt;&gt;
+		&lt;&lt;/if&gt;&gt;
+	&lt;&lt;/repeat&gt;&gt;
+&lt;&lt;/timed&gt;&gt;
+&lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="17" name="Inquiete bis" tags="" position="1300,825.5" size="100,100">
+&lt;span id=&quot;pnj8&quot; class=&quot;pnj&quot;&gt;&lt;/span&gt;
+
+&lt;span id=&quot;player2&quot; class=&quot;player&quot;&gt;&lt;/span&gt;
+
+&lt;&lt;silently&gt;&gt;
+&lt;&lt;timed 1s&gt;&gt;
+	&lt;&lt;replace &quot;#pnj8&quot;&gt;&gt;//affiche un sourire amusé// Ah mais c’est normal, c’est un couteau à beurre. Tiens, prends un autre couteau, tu t’en sortiras mieux comme ça.&lt;&lt;/replace&gt;&gt;
+
+&lt;&lt;next&gt;&gt;
+	&lt;&lt;replace &quot;#player2&quot;&gt;&gt;Heu, merci. Du coup je peux te poser une question ?
+	&lt;&lt;include &quot;Interet&quot;&gt;&gt;&lt;&lt;replace&gt;&gt;
+&lt;&lt;/timed&gt;&gt;
+&lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="18" name="Interet bis" tags="" position="1452,825.5" size="100,100">
+&lt;span id=&quot;pnj9&quot; class=&quot;pnj&quot;&gt;&lt;/span&gt;
+
+&lt;&lt;silently&gt;&gt;
+&lt;&lt;timed 1s&gt;&gt;
+	&lt;&lt;if $selected[7][0] is &quot;Qu’est-ce que tu déteste
+&quot;&gt;&gt;
+		&lt;&lt;set _answer to &quot;pas&quot;&gt;&gt;
+	&lt;&lt;else&gt;&gt;
+		&lt;&lt;set _answer to &quot;aime&quot;&gt;&gt;
+	&lt;&lt;/if&gt;&gt;
+	&lt;&lt;switch _answer&gt;&gt;
+	&lt;&lt;case &quot;pas&quot;&gt;&gt;
+		&lt;&lt;replace &quot;#pnj9&quot;&gt;&gt;Je déteste ne pas avoir le temps de faire ce que je veux. Il y a plein de choses que je ne peux pas faire, mais ce n’est pas une question d’envie : c’est une question d’avoir mille choses à faire. &lt;&lt;include &quot;Intime&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;
+	&lt;&lt;case &quot;aime&quot;&gt;&gt;
+		&lt;&lt;replace &quot;#pnj9&quot;&gt;&gt;//sourit// J’adore jouer de la musique. C’est une chose que je pourrais jamais abandonner dans la vie. C’est aussi pour ça que je passe autant de temps aux festivals, c’est une manière de vivre et de partager cette passion !&lt;&lt;include &quot;Fin&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;
+	&lt;&lt;/switch&gt;&gt;
+&lt;&lt;/timed&gt;&gt;
+&lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="19" name="Fin" tags="" position="1750,699.5" size="100,100">
+&lt;span id=&quot;pnj11&quot; class=&quot;pnj&quot;&gt;&lt;/span&gt;
+
+&lt;span id=&quot;tenthChoice&quot; class=&quot;choice&quot;&gt;&lt;/span&gt;
+
+&lt;&lt;silently&gt;&gt;
+&lt;&lt;timed 1s&gt;&gt;
+	&lt;&lt;replace &quot;#pnj11&quot;&gt;&gt;Enfin brouette, je suis désoléx, je ne veux parler trop de moi non plus ou occuper trop de place…&lt;&lt;\replace&gt;&gt;
+	
+&lt;&lt;next&gt;&gt;
+
+	/* Variable indiquant si le choix a été fait */
+	&lt;&lt;set $choice to false&gt;&gt;
+
+	/* Options de dialogue */
+	&lt;&lt;set $s1 to [&quot;Non t’inquiète,&quot;, &quot;Ne t’en fais pas,&quot;, &quot;Boarf,&quot;]&gt;&gt;
+	&lt;&lt;set $s2 to [&quot;ça me fait plaisir de t’écouter.&quot;, &quot;tu ne prends pas trop de place.&quot;, &quot;tu es une personne très chouette !&quot;]&gt;&gt;
+	&lt;&lt;set $s3 to [&quot;&quot;, &quot;&quot;, &quot;&quot;]&gt;&gt;
+	
+	/* Propose le choix */
+	&lt;&lt;set $selected[9][0] to either($s1)&gt;&gt;
+	&lt;&lt;set $selected[9][1] to either($s2)&gt;&gt;
+	&lt;&lt;set $selected[9][2] to either($s3)&gt;&gt;
+	&lt;&lt;replace &quot;#tenthChoice&quot;&gt;&gt;&lt;span id=&quot;first&quot; class=&quot;choice&quot;&gt;$selected[9][0]&lt;/span&gt; &lt;span id=&quot;second&quot; class=&quot;choice&quot;&gt;$selected[9][1]&lt;/span&gt; &lt;span id=&quot;third&quot; class=&quot;choice&quot;&gt;$selected[9][2]&lt;/span&gt;
+	&lt;&lt;link &quot;Je dis ça !&quot;&gt;&gt;&lt;&lt;set $choice to true&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/replace&gt;&gt;
+	
+	/* Boucle tant que le choix n&#39;est pas fait */
+	&lt;&lt;repeat $timer&gt;&gt;
+		&lt;&lt;if $choice is false&gt;&gt;
+			/* Choisit une nouvelle option au hasard pour le premier segment */
+			&lt;&lt;set $selected[9][0] to either($s1)&gt;&gt;
+			/* Remplace le texte par cette nouvelle option */
+			&lt;&lt;replace &quot;#first&quot;&gt;&gt;$selected[9][0]&lt;&lt;/replace&gt;&gt;
+			/* Meme choise pour les deuxièmes et troisièmes segments */
+			&lt;&lt;set $selected[9][1] to either($s2)&gt;&gt;
+			&lt;&lt;replace &quot;#second&quot;&gt;&gt;$selected[9][1]&lt;&lt;/replace&gt;&gt;
+			&lt;&lt;set $selected[9][2] to either($s3)&gt;&gt;
+			&lt;&lt;replace &quot;#third&quot;&gt;&gt;$selected[9][2]&lt;&lt;/replace&gt;&gt;
+		&lt;&lt;else&gt;&gt;
+			/* Choix fait */
+			&lt;&lt;replace &quot;#tenthChoice&quot;&gt;&gt;&lt;span class=&quot;player&quot;&gt;$selected[9][0] $selected[9][1] $selected[9][2]&lt;/span&gt;
+			&lt;&lt;include &quot;Fin bis&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;
+			/* On arrete la répétition */
+			&lt;&lt;stop&gt;&gt;
+		&lt;&lt;/if&gt;&gt;
+	&lt;&lt;/repeat&gt;&gt;
+&lt;&lt;/timed&gt;&gt;
+&lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="20" name="Intime bis" tags="" position="1600,824.5" size="100,100">
+&lt;span id=&quot;pnj10&quot; class=&quot;pnj&quot;&gt;&lt;/span&gt;
+
+&lt;&lt;silently&gt;&gt;
+&lt;&lt;timed 1s&gt;&gt;
+	&lt;&lt;if $selected[8][2] is &quot;aider les gens.&quot;&gt;&gt;
+		&lt;&lt;set _answer to &quot;indigne&quot;&gt;&gt;
+	&lt;&lt;elseif $selected[8][1] is &quot;Tu ne dois pas&quot;&gt;&gt;
+		&lt;&lt;set _answer to &quot;injonction&quot;&gt;&gt;
+	&lt;&lt;else&gt;&gt;
+		&lt;&lt;set _answer to &quot;sincere&quot;&gt;&gt;
+	&lt;&lt;/if&gt;&gt;
+	&lt;&lt;switch _answer&gt;&gt;
+	&lt;&lt;case &quot;indigne&quot;&gt;&gt;
+		&lt;&lt;replace &quot;#pnj10&quot;&gt;&gt;Mais je ne peux pas ne pas aider les gens ! Nous avons besoin les un.es des autres, la vie ne peut pas se faire en solitaire auto-suffisant ! Tu comprends ?&lt;&lt;/replace&gt;&gt;
+		&lt;&lt;next&gt;&gt;
+		&lt;&lt;append &quot;#pnj10&quot;&gt;&gt;
+		
+		Je sais que je ne devrais pas être si exigeante envers moi-même… Mais c’est dur. J’ai l’impression de ne pas en faire assez. J’ai du mal à être clément.e avec moi-même.
+		&lt;&lt;include &quot;Fin&quot;&gt;&gt;&lt;&lt;/append&gt;&gt;
+	&lt;&lt;case &quot;sincere&quot;&gt;&gt;
+		&lt;&lt;replace &quot;#pnj10&quot;&gt;&gt;Je sais que je ne devrais pas être si exigeante envers moi-même… Mais c’est dur. J’ai l’impression de ne pas en faire assez. J’ai du mal à être clément.e avec moi-même.
+		&lt;&lt;include &quot;Fin&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;
+	&lt;&lt;case &quot;injonction&quot;&gt;&gt;
+		&lt;&lt;replace &quot;#pnj10&quot;&gt;&gt;//grimace// J’ai un peu du mal avec les injonctions. Tu as sans doute raison mais… Je suis juste comme ça, je pense pas pouvoir y changer grand chose.
+		&lt;&lt;include &quot;Fin&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;
+	&lt;&lt;/switch&gt;&gt;
+&lt;&lt;/timed&gt;&gt;
+&lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="21" name="Fin bis" tags="" position="1752,825.5" size="100,100">
+&lt;span id=&quot;pnj12&quot; class=&quot;pnj&quot;&gt;&lt;/span&gt;
+
+&lt;span id=&quot;n2&quot; class=&quot;narration&quot;&gt;&lt;/span&gt;
+
+&lt;&lt;silently&gt;&gt;
+&lt;&lt;timed 1s&gt;&gt;
+	&lt;&lt;if $selected[9][2] is &quot;tu es une personne très chouette !&quot;&gt;&gt;
+		&lt;&lt;set _answer to &quot;chouette&quot;&gt;&gt;
+	&lt;&lt;else&gt;&gt;
+		&lt;&lt;set _answer to &quot;conclusion&quot;&gt;&gt;
+	&lt;&lt;/if&gt;&gt;
+	&lt;&lt;switch _answer&gt;&gt;
+	&lt;&lt;case &quot;chouette&quot;&gt;&gt;
+		&lt;&lt;replace &quot;#pnj12&quot;&gt;&gt;//rougit timidement en fuyant du regard// Oh, m-merci. Je pense que tu es chouette aussi.&lt;&lt;/replace&gt;&gt;
+		&lt;&lt;next&gt;&gt;
+		&lt;&lt;append &quot;#pnj12&quot;&gt;&gt;
+		
+		C’est très gentil de ta part de me dire ça. ça me rassure, je ne suis jamais complètement à l’aise quand il s’agit de parler de soi. Et si tu m’en disais un peu plus sur toi, maintenant ?
+		
+		FIN&lt;&lt;/append&gt;&gt;
+		&lt;&lt;next&gt;&gt;
+		&lt;&lt;replace &quot;#n2&quot;&gt;&gt;Vous poursuivez la conversation en continuant d’éplucher les pomme de terre et en cuisinant ensemble, en toute simplicité. Vous passez un très bon moment.&lt;&lt;/replace&gt;&gt;
+	&lt;&lt;case &quot;conclusions&quot;&gt;&gt;
+		&lt;&lt;replace &quot;#pnj12&quot;&gt;&gt;C’est très gentil de ta part de me dire ça. ça me rassure, je ne suis jamais complètement à l’aise quand il s’agit de parler de soi. Et si tu m’en disais un peu plus sur toi, maintenant ?&lt;&lt;/replace&gt;&gt;
+		&lt;&lt;next&gt;&gt;
+		&lt;&lt;replace &quot;#n2&quot;&gt;&gt;Vous poursuivez la conversation en continuant d’éplucher les pomme de terre et en cuisinant ensemble, en toute simplicité. Vous passez un très bon moment.
+		
+		FIN&lt;&lt;/replace&gt;&gt;
 	&lt;&lt;/switch&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
 &lt;&lt;/silently&gt;&gt;</tw-passagedata></tw-storydata>
